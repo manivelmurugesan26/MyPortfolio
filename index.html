@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Full Stack Developer Portfolio</title>
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f4f4f4, #f587f1);
+            color: #333;
+        }
+
+        header {
+            background: #1A3D6A;
+            color: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* Hamburger menu styling */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Navbar styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #D4AF37;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            /* Show hamburger */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide menu on mobile */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #1A3D6A;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
+                z-index: 1000;
+            }
+
+            body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f4f4f4, #f587f1);
+            color: #333;
+        }
+
+        header {
+            background: #1A3D6A;
+            color: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* Hamburger menu styling */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Navbar styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #D4AF37;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            /* Show hamburger */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide menu on mobile */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #1A3D6A;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
+                z-index: 1000;
+            }
+
+            /* Show menu when active */
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 10px;
+                width: 100%;
+            }
+
+            nav ul li a {
+                color: white;
+            }
+        }
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background:#1A3D6A; /* Navy Blue */
+            color: white;
+            margin-top: 20px;
+            border-radius: 100px;
+        }
+
+        .hero img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color:white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            color: #fff;
+            background: #ea3c3c; /* Muted Teal Button */
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #D4AF37; /* Warm Gold Hover Effect */
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section h2 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #1A3D6A; /* Navy Blue */
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+
+        .card {
+            background: #ffffff; /* White Background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #1A3D6A; /* Navy Blue for Card Title */
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Section Color Variations for Cards */
+        #projects .card {
+            background: #E8F3F0; /* Light Gray Background */
+        }
+
+        #education .card {
+            background: #E8F3F0; /* Light Teal Background */
+        }
+
+        #experience .card {
+            background: #E8F3F0; /* Light Warm Yellow Background */
+        }
+
+        #certificates .card {
+            background: #E8F3F0; /* Light Sky Blue Background */
+        }
+
+        .contact {
+            background: #1A3D6A; /* Navy Blue Background */
+            color: #fff;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1A3D6A; /* Navy Blue */
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .projects {
+            position: relative;
+            background: url('your-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Darken Background */
+            z-index: 1;
+        }
+
+        .project-list {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Get elements
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        // Toggle 'active' class when hamburger menu is clicked
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
+ <header>
+    <h1>My Portfolio</h1>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav>
+        <ul id="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="hero" id="about">
+        <img src="profile.jpg" alt="Profile Image">
+        <h1>MANIVEL C.M. </h1>
+        <h2>Full Stack Developer</h2>
+        <p>Passionate about building web applications that solve real-world problems.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="content">
+            <div class="card">
+                <h3>TuneHub</h3>
+                <p>TuneHub is a web-based platform designed to revolutionize the way users discover and enjoy music...</p>
+                <a href="https://github.com/manivelmurugesan26/tune-hub.git">Project Link</a>
+            </div>
+            <div class="card">
+                <h3>Employee Management System</h3>
+                <p>The Employee Management System (EMS) is a comprehensive web application designed to simplify and automate HR processes...</p>
+                <a href="https://github.com/manivelmurugesan26/Employee-Management.git">Project Link</a>
+            </div>
+        </div>
+        <br />
+        <div class="content">
+            <div class="card">
+                <h3>Portfolio Tracker</h3>
+                <p>Portfolio Tracker is a user-friendly web application designed to help individuals monitor and manage their investments...</p>
+                <a href="https://github.com/manivelmurugesan26/PortFolio-Stack-Management.git">Project Link</a>
+            </div>
+            <div class="card">
+                <h3>ParkQwik</h3>
+                <p>ParkQwik is a web-based application designed to revolutionize the way people find and reserve parking spaces...</p>
+                <a href="https://github.com/manivelmurugesan26/ParkqwikAppFinal.git">Project Link</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="content">
+            <div class="card">
+                <h3>Master's in Computer Science</h3>
+                <p>Barathidasan University, 2021 - 2023</p>
+            </div>
+            <div class="card">
+                <h3>Bachelor's in Computer Science</h3>
+                <p>Barathidasan University, 2018 - 2021</p>
+            </div>
+        </div>
+        <br />
+        <div class="content">
+            <div class="card">
+                <h3>HSC</h3>
+                <p>ER Boys Hr Sec School, 2017 - 2018</p>
+            </div>
+            <div class="card">
+                <h3>SSLC</h3>
+                <p>ST.Joseph's College Hr Sec School, 2015 - 2016</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="content">
+            <div class="card">
+                <h3>Full Stack Developer</h3>
+                <p>KodNest Technology, 2023 - 2024</p>
+            </div>
+            <div class="card">
+                <h3>Full Stack Developer</h3>
+                <p>ParkQwik, 2024 - Present</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="content">
+            <div class="card">
+                <h3>Java Full Stack Development</h3>
+                <p>KodNest Technology, 2024</p>
+                <a href="https://in.docworkspace.com/d/sIJbUjtWxAbGqs7cG?sa=601.1123&ps=1&fn=Kodnest%20-%20KODHUU5Q9.add">View Certificate</a>
+            </div>
+            <div class="card">
+                <h3>FrontEnd Development</h3>
+                <p>ParkQwik, 2024</p>
+                <a href="https://in.docworkspace.com/d/sIMzUjtWxAbCTxLcG?sa=wa2&ps=1&fn=Manivel%20Internship%20Certificate.pdf">View Certificate</a>
+            </div>
+            <div class="card">
+                <h3>Java</h3>
+                <p>Hacker Rank, 2024</p>
+                <a href="https://www.hackerrank.com/certificates/145bbdc30fcb">View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>Email Id: manivelmurugesan26@gmail.com</p>
+        <p>Phone No: 9843969002</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/manivel-murugesan-197215261/" title="LinkedIn">LinkedIn🔗</a>
+            <a href="https://github.com/manivelmurugesan26" title="GitHub">GitHub🐙</a>
+        </div>
+        <p>I'm always open to discuss your projects or collaborate.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MANIVEL. All rights reserved.</p>
+    </footer>
+</body>
+</html>
